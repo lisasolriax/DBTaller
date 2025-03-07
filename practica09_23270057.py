@@ -48,5 +48,3 @@ def eliminar_tipo(tipo):
     cursor.close()
     conexion.close()
     
-    #el enlace aunque al DBTaller donde se encuentra mis archivos
-    #https://github.com/lisasolriax/DBTaller.git

@@ -2,48 +2,53 @@
 #CRUD de los Profesores
 from conexion import conectar
 
-#Agregar un tipo de proyecto
-def agregar_tipo(tipo, nombre):
+from conexion import conectar
+
+# Agregar un profesor
+def agregar_profesor(nombreProf):
     conexion = conectar()
     cursor = conexion.cursor()
-    sql = "INSERT INTO tipoproyecto (tipo, nombre) VALUES (%s, %s)"
-    valores = (tipo, nombre)
+    sql = "INSERT INTO profesor (nombreProf) VALUES (%s)"
+    valores = (nombreProf,)
     cursor.execute(sql, valores)
     conexion.commit()
-    print("Tipo de proyecto agregado.")
+    print("Profesor agregado.")
     cursor.close()
     conexion.close()
 
-#Listar todos los tipos de proyecto
-def listar_tipos():
+# Listar profesores
+def listar_profesores():
     conexion = conectar()
     cursor = conexion.cursor()
-    cursor.execute("SELECT * FROM tipoproyecto")
-    tipos = cursor.fetchall()
-    for tipo in tipos:
-        print(tipo)
+    cursor.execute("SELECT * FROM profesor")
+    profesores = cursor.fetchall()
+    for profesor in profesores:
+        print(profesor)
     cursor.close()
     conexion.close()
 
-# Actualizar un tipo de proyecto
-def actualizar_tipo(tipo, nuevo_nombre):
+# Modificar profesor
+def actualizar_profesor(idprofesor, nuevo_nombre):
     conexion = conectar()
     cursor = conexion.cursor()
-    sql = "UPDATE tipoproyecto SET nombre = %s WHERE tipo = %s"
-    valores = (nuevo_nombre, tipo)
+    sql = "UPDATE profesor SET nombreProf = %s WHERE idprofesor = %s"
+    valores = (nuevo_nombre, idprofesor)
     cursor.execute(sql, valores)
     conexion.commit()
-    print("Tipo de proyecto actualizado.")
+    print("Profesor actualizado.")
     cursor.close()
     conexion.close()
 
-# Eliminar un tipo de proyecto
-def eliminar_tipo(tipo):
+# Eliminar profesor
+def eliminar_profesor(idprofesor):
     conexion = conectar()
     cursor = conexion.cursor()
-    sql = "DELETE FROM tipoproyecto WHERE tipo = %s"
-    cursor.execute(sql, (tipo,))
+    sql = "DELETE FROM profesor WHERE idprofesor = %s"
+    cursor.execute(sql, (idprofesor,))
     conexion.commit()
-    print("Tipo de proyecto eliminado.")
+    print("Profesor eliminado.")
     cursor.close()
     conexion.close()
+    
+    
+#https://github.com/lisasolriax/DBTaller/blob/master/practica10_23270057.py

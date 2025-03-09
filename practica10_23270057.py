@@ -2,8 +2,6 @@
 #CRUD de los Profesores
 from conexion import conectar
 
-from conexion import conectar
-
 # Agregar un profesor
 def agregar_profesor(nombreProf):
     conexion = conectar()

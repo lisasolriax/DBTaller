@@ -102,4 +102,4 @@ if __name__ == "__main__":
 
     
     
-#https://github.com/lisasolriax/DBTaller/blob/master/practica10_23270057.py
+#https://github.com/lisasolriax/DBTaller/blob/main/practica10_23270057.py
